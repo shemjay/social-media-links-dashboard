@@ -2,24 +2,75 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | [Challenge Name Here]</title>
+  <link href="style.css" rel="stylesheet">
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <title>Social Media Dashboard</title>
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  
 </head>
 <body>
 
-  Social Media Dashboard
-  Total Followers: 23,004
+  <div class="wrapper">
+    <!-- Wrapper Start -->
 
-  Dark Mode
+    <!-- Nav Start -->
+    <nav>
+      <div class="nav-title">
+        <h1>Social Media Dashboard</h1>
+        <h3>Total Followers: 23,004</h3>
+      </div>
+
+      <hr class="divider">
+
+      <div class="nav-toggle">
+        <h3 class="toggle-label">Dark Mode</h3>
+        <input type="checkbox" id="toggle" class="input-toggle">
+        <label class="toggle-switch" for="toggle"></label>
+      </div>
+    </nav>
+    <!-- Nav End -->
+
+    <!-- Follower Grid Start -->
+    <div class="follower-grid">
+      <div class="grid-item">
+        <div class="social-tag">
+          <img src="/images/icon-facebook.svg" alt="" />
+          <h3>@nathanf</h3>
+        </div>
+        <p class="social-count">1987</p>
+        <p>Followers</p>
+        <p class="social-increase"><span><img src="/images/icon-up.svg" /></span>12 Today</p>
+      </div>
+    </div>
+    <!-- Follower Grid End -->
+
+    <!-- Metrics Grid Start -->
+    <div class="metrics-grid">
+      
+    </div>
+    <!-- Metrics Grid End -->
+
+    <!-- Wrapper End -->
+  </div>
+  
+</body>
+</html>
+
+<!-- 
+
+  <div class="attribution">
+    Coded with ❤️ by Shem.
+  </div>
+
+  
+
+  
 
   
 
@@ -78,10 +129,4 @@
   Total Views
   1407
   12%
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
-</html>
+ -->
