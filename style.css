@@ -59,15 +59,17 @@ body, html {
     font-size: var(--font);
     font-family: "Inter", sans-serif;
     font-weight: var(--weight-1);
+    color: var(--Dark-Grayish-Blue);
 }
 
 .wrapper {
     min-height: 100vh;
     max-width: 100%;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     background-color: var(--White);
+    padding: 10px;
+    border: 2px solid blue;
 }
 
 nav {
@@ -76,7 +78,6 @@ nav {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
-    border: 2px solid black;
     overflow: hidden;
 }
 
@@ -127,7 +128,54 @@ nav {
 
 .input-toggle:checked + .toggle-switch::after {
     left: calc(100% - 18px); 
-  }
+}
+
+.follower-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 
+        repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
+}
+
+.grid-item {
+    background-color: var(--Light-Grayish-Blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px; 
+    border-top: 4px solid var(--facebook);
+    padding: 20px;
+}
+
+.social-tag {
+    display: flex;
+    gap: 0.5rem;
+    padding-bottom: 10px;
+}
+
+.social-count {
+    font-size: 80px;
+    font-weight: var(--weight-2);
+    color: var(--Very-Dark-Blue);
+}
+
+.social-followers {
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+
+.social-increase {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--weight-2);
+    color: var(--first);
+}
 
 /* media queries */
 @media (max-width: 375px), (max-width: 600px) {
