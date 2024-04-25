@@ -15,7 +15,7 @@
     /* Social Media Icons */
     --facebook: hsl(208, 92%, 53%);
     --Twitter: hsl(203, 89%, 53%);
-    --Instagram: linear gradient hsl(37, 97%, 70%) to hsl(329, 70%, 58%);
+    --Instagram: linear-gradient(hsl(37, 97%, 70%), hsl(329, 70%, 58%));
     --Youtube: hsl(348, 97%, 39%);
 
     --toggle-dark: linear-gradient(hsl(210, 78%, 56%), hsl(146, 68%, 55%));
@@ -69,7 +69,6 @@ body, html {
     flex-direction: column;
     background-color: var(--White);
     padding: 10px;
-    border: 2px solid blue;
 }
 
 nav {
@@ -79,6 +78,12 @@ nav {
     justify-content: space-between;
     align-items: flex-start;
     overflow: hidden;
+}
+
+nav h1 {
+    font-size: 25px;
+    color: var(--Very-Dark-Blue);
+    padding-bottom: 10px;
 }
 
 .nav-toggle {
@@ -91,6 +96,7 @@ nav {
     display: none;
     color: var(--Dark-Grayish-Blue);
     width: 100%;
+    margin: 20px 0px;
 }
 
 .toggle-switch {
@@ -130,11 +136,12 @@ nav {
     left: calc(100% - 18px); 
 }
 
-.follower-grid {
+.grid {
     display: grid;
-    gap: 1rem;
+    gap: 2rem;
     grid-template-columns: 
         repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
+    padding: 10px 0px;
 }
 
 .grid-item {
@@ -147,6 +154,22 @@ nav {
     border-top-right-radius: 5px; 
     border-top: 4px solid var(--facebook);
     padding: 20px;
+}
+
+.twitter {
+    border-top: 4px solid var(--Twitter);
+}
+
+.instagram {
+    border-top: 4px solid var(--Twitter);
+}
+
+.youtube {
+    border-top: 4px solid var(--Youtube);
+}
+
+.youtube .social-increase {
+    color: var(--second);
 }
 
 .social-tag {
@@ -177,20 +200,33 @@ nav {
     color: var(--first);
 }
 
+.metrics-views {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.metrics-grid > h3 {
+    grid-column: 1 / -1;
+    font-size: 25px;
+}
+
 /* media queries */
 @media (max-width: 375px), (max-width: 600px) {
+    .wrapper {
+        padding: 20px;
+    }
     nav {
         flex-direction: column;
         justify-content: center;
-        align-items: left;
-        padding: 20px;
+        padding-bottom: 30px;
     }
     .nav-toggle {
         display: flex;
+        align-items: center;
         justify-content: space-between;
     }
     .divider {
         display: block;
     }
-    
   }
