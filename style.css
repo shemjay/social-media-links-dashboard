@@ -22,7 +22,7 @@
     --toggle-light: hsl(230, 22%, 74%);
 
     /* Dark theme */
-    --Very-Dark-Blue: hsl(230, 17%, 14%);
+    --Dark-Blue: hsl(230, 17%, 14%);
     --Very-Dark-Blue: hsl(232, 19%, 15%);
     --Dark-Desaturated-Blue: hsl(228, 28%, 20%);
     
@@ -39,7 +39,7 @@
 
     /* Light Text */
     --Dark-Grayish-Blue: hsl(228, 12%, 44%);
-    --Very-Dark-Blue: hsl(230, 17%, 14%);
+    --Very-Dark-Blue-2: hsl(230, 17%, 14%);
 
     /* font */
     --weight-1: 400;
@@ -62,32 +62,49 @@ body, html {
     color: var(--Dark-Grayish-Blue);
 }
 
-.wrapper {
+.container {
+    position: relative;
+    padding: 30px;
     min-height: 100vh;
     max-width: 100%;
+}
+
+.backdrop {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 250px; 
+    z-index: 1; 
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.wrapper {
     display: flex;
     flex-direction: column;
-    background-color: var(--White);
-    padding: 10px;
+    background-color: transparent;
+    padding: 20px 30px;
+    position: relative; 
+    z-index: 2; 
 }
 
 nav {
     max-width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: space-between;
-    align-items: flex-start;
     overflow: hidden;
+    padding: 20px 0px;
 }
 
 nav h1 {
-    font-size: 25px;
-    color: var(--Very-Dark-Blue);
+    font-size: 30px;
+    color: var(--Very-Dark-Blue-2);
     padding-bottom: 10px;
 }
 
 .nav-toggle {
-    width: 100%;
     display: flex;
     align-items: center;
 }
@@ -116,7 +133,7 @@ nav h1 {
     height: 16px;
     position: absolute;
     top: 2px;
-    left: 2px;
+    right: 2px;
     border-radius: 50%;
     background: var(--White);
     transition: 0.3s;
@@ -133,7 +150,8 @@ nav h1 {
 }
 
 .input-toggle:checked + .toggle-switch::after {
-    left: calc(100% - 18px); 
+    right: calc(100% - 18px); 
+    background: var(--Dark-Desaturated-Blue);
 }
 
 .grid {
@@ -150,10 +168,10 @@ nav h1 {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px; 
+    border-radius: 5px; 
     border-top: 4px solid var(--facebook);
     padding: 20px;
+    cursor: pointer;
 }
 
 .twitter {
@@ -161,7 +179,8 @@ nav h1 {
 }
 
 .instagram {
-    border-top: 4px solid var(--Twitter);
+    border-top: 4px solid;
+    border-image: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%)) 20;
 }
 
 .youtube {
@@ -181,7 +200,7 @@ nav h1 {
 .social-count {
     font-size: 80px;
     font-weight: var(--weight-2);
-    color: var(--Very-Dark-Blue);
+    color: var(--Very-Dark-Blue-2);
 }
 
 .social-followers {
@@ -200,28 +219,108 @@ nav h1 {
     color: var(--first);
 }
 
-.metrics-views {
+.metrics-title {
+    color: var(--Dark-Grayish-Blue);
+}
+
+.metrics-views, .metrics-count {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
+.metrics-count {
+    margin-top: 25px;
+}
+
+.metrics-count > p {
+    font-size: 40px;
+    font-weight: var(--weight-2);
+    color: var(--Very-Dark-Blue-2);
+}
+
 .metrics-grid > h3 {
     grid-column: 1 / -1;
     font-size: 25px;
+    padding: 20px 0px;
+}
+
+.metrics-grid-item {
+    background-color: var(--Light-Grayish-Blue);
+    padding: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.metrics-grid-item:hover {
+    background-color: var(--toggle-light);
+} 
+
+.metrics-increase {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--weight-2);
+    color: var(--first);
+}
+
+.decrease {
+    color: var(--second);
+}
+
+/* Dark mode styles */
+.body-dark {
+    background: var(--Dark-Blue);
+    color: var(--Desaturated-Blue);
+}
+
+.backdrop-dark {
+    background-color: var(--Dark-Desaturated-Blue);
+}
+
+.grid-item-dark {
+    background-color: var(--Dark-Desaturated-Blue);
+}
+
+.social-count-dark {
+    color: var(--White) !important;
 }
 
 /* media queries */
+
+@media (min-width: 768px) {
+    .grid-item:hover {
+        background-color: var(--toggle-light);
+    }
+    .grid-item-effect:hover {
+        background-color: var(--Dark-Grayish-Blue);
+    }
+  }
+
 @media (max-width: 375px), (max-width: 600px) {
-    .wrapper {
+    .container {
         padding: 20px;
+    }
+    .wrapper {
+        padding: 10px;
+    }
+    .backdrop {
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        height: 350px;
     }
     nav {
         flex-direction: column;
         justify-content: center;
         padding-bottom: 30px;
     }
+    .nav-title {
+        width: 100%;
+        text-align: left;
+    }
     .nav-toggle {
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
